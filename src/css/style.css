@@ -1,0 +1,386 @@
+:root {
+    --primary-color: #0D014D;
+    --secondary-color: #A5A5A5;
+    --back-color: #EDEDED;
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 65.5%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    background: rgb(177, 230, 222);
+    background: -moz-linear-gradient(176deg, rgba(177, 230, 222, 1) 16%, rgba(253, 166, 247, 1) 100%);
+    background: -webkit-linear-gradient(176deg, rgba(177, 230, 222, 1) 16%, rgba(253, 166, 247, 1) 100%);
+    background: linear-gradient(176deg, rgba(177, 230, 222, 1) 16%, rgba(253, 166, 247, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b1e6de", endColorstr="#fda6f7", GradientType=1);
+
+    font-size: 2rem;
+}
+
+input,
+button {
+    outline: none;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+i {
+    cursor: pointer;
+}
+
+.btn-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 6rem;
+    margin-top: 0;
+    cursor: move;
+    background-color: #0D014D;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    /*Mover la ventana*/
+}
+
+.btn-actions div button {
+    width: 40px;
+    height: 40px;
+    margin-left: 1.5rem;
+    font-size: 2.5rem;
+    border: none;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+}
+
+.btn-actions div button:last-child {
+    margin-right: 4rem;
+}
+
+.btn-actions div .btnMinimize {
+    background-image: url("../img/minimize.png");
+    cursor: pointer;
+}
+
+.btn-actions div .maxRes {
+    background-image: url("../img/maximize.png");
+    cursor: pointer;
+}
+
+.btn-actions div .btnRes {
+    background-image: url("../img/restore.png");
+    cursor: pointer;
+}
+
+.btn-actions div .btnClose {
+    background-image: url("../img/close.png");
+    cursor: pointer;
+}
+
+.content {
+    overflow: hidden;
+    position: relative;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100rem;
+    height: 55rem;
+    background: #fff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    border-radius: 2rem;
+    transition: all .5s;
+    -webkit-user-select: none;
+}
+
+.img {
+    overflow: hidden;
+    position: relative;
+    width: 60rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/fondo-peope.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.login-register,
+.register {
+    position: relative;
+    width: 40rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 4rem;
+    transition: all .5s;
+}
+
+.login-register h1,
+.register h1 {
+    color: var(--primary-color);
+}
+
+.login-register form,
+.register form {
+    width: 100%;
+}
+
+.login-register form div .fields,
+.register form div .fields {
+    width: 100%;
+    padding: 1.5rem 6rem;
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 2rem;
+}
+
+.login-register form .email i,
+.register form .email i {
+    position: absolute;
+    right: 32rem;
+    top: 44%;
+    transform: translateY(-50%);
+    color: #0D014D;
+}
+
+.login-register form .password i {
+    position: absolute;
+    right: 32rem;
+    top: 55.8%;
+    transform: translateY(-50%);
+    color: #0D014D;
+}
+
+.login-register form div .pass,
+.register form div .pass,
+.register form div .lastname,
+.register form div .con-pass,
+.register form div .email {
+    margin-top: 1rem;
+}
+
+.login-register .form-login button,
+.register .form-login button {
+    width: 100%;
+    margin-top: 2.5rem;
+    border: none;
+    background-color: #0D014D;
+    border-radius: 2rem;
+    padding: 1.5rem 2rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.register form .name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*Register*/
+.register form .password i {
+    position: absolute;
+    right: 32rem;
+    top: 60.5%;
+    transform: translateY(-50%);
+    color: #0D014D;
+}
+
+.register form .confirm-password i {
+    position: absolute;
+    right: 32rem;
+    top: 72%;
+    transform: translateY(-50%);
+    color: #0D014D;
+}
+
+.register form .email i {
+    position: absolute;
+    right: 32rem;
+    top: 49%;
+    transform: translateY(-50%);
+    color: #0D014D;
+}
+
+.register form .name i {
+    position: absolute;
+    right: 32rem;
+    top: 26%;
+    transform: translateY(-50%);
+    color: #0D014D;
+}
+
+.register .others {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/**/
+
+.login-register .others {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.login-register .others a:last-child,
+.register .others a {
+    color: var(--primary-color);
+}
+
+.register {
+    position: absolute;
+    left: 100%;
+    transition: all .5s;
+}
+
+.login-register.deactive {
+    left: 100%;
+    transition: all .5s;
+}
+
+.register.active {
+    left: 60%;
+    transition: all .5s;
+}
+
+/*No telefonos*/
+
+@media (min-width: 280px) {
+    .content {
+        width: 24rem;
+        height: 60rem;
+    }
+
+    .img {
+        display: none;
+    }
+
+    .login-register,
+    .register {
+        height: 100%;
+    }
+
+    .register {
+        width: 100%;
+        height: 100%;
+        left: 100%;
+    }
+
+    .register.active {
+        left: 0%;
+        transition: all .5s;
+    }
+}
+
+/*Telefonos*/
+@media (min-width: 480px) {
+    .content {
+        width: 44rem;
+        height: 55rem;
+    }
+
+    .img {
+        display: none;
+    }
+
+    .login-register,
+    .register {
+        height: 100%;
+    }
+
+    .register.active {
+        left: 5%;
+        transition: all .5s;
+    }
+}
+
+/*Tablets*/
+@media (min-width: 768px) {
+    .content {
+        width: 70rem;
+        height: 55rem;
+    }
+
+    .img {
+        display: flex;
+        width: 30rem;
+        height: 100%;
+    }
+
+    .login-register,
+    .register {
+        width: 40rem;
+        height: 100%;
+    }
+
+    .register.active {
+        left: 43%;
+        transition: all .5s;
+    }
+
+}
+
+/*Computadoras*/
+@media (min-width: 1140px) {
+    .content {
+        width: 100rem;
+        height: 55rem;
+    }
+
+    .img {
+        display: flex;
+        width: 60rem;
+        height: 100%;
+    }
+
+    .login-register,
+    .register {
+        width: 40rem;
+        height: 100%;
+    }
+
+    .register.active {
+        left: 60%;
+        transition: all .5s;
+    }
+}
+
+/*Pantallas grandes*/
+@media (min-width: 1400px) {
+    .img {
+        display: flex;
+    }
+}

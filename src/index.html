@@ -4,7 +4,164 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    />
     <title>Document</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css//font-awesome/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="btn-actions">
+      <div>
+        <button
+          type="submit"
+          id="btnMinimize"
+          class="btnMinimize"
+          title="Minimize"
+        ></button>
+
+        <button
+          type="submit"
+          id="btnMaxRes"
+          class="maxRes"
+          title="Maximize"
+        ></button>
+
+        <button
+          type="submit"
+          id="btnClose"
+          class="btnClose"
+          title="Close"
+        ></button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="img"></div>
+
+      <div class="login-register">
+        <h1>Member Login</h1>
+
+        <form action="" id="login" class="form-login">
+          <div class="email">
+            <label for="txtEmail"> </label>
+            <input
+              type="text"
+              name=""
+              id="txtEmail"
+              class="fields email"
+              placeholder="email@example.com"
+              required
+            />
+            <i class="far fa-envelope"></i>
+          </div>
+          <div class="password">
+            <label for="pwsPass"> </label
+            ><input
+              type="password"
+              name=""
+              id="pwsPass"
+              class="fields pass"
+              placeholder="Password"
+              required
+            />
+            <i class="fas fa-unlock-alt"></i>
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+
+        <div class="others">
+          <a href="#">Forgot Password?</a>
+          <a href="#" class="linkRegister">
+            <span>New on our platform?</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="register">
+        <h1>Member Register</h1>
+
+        <form action="" id="register" class="form-login">
+          <div class="name">
+            <label for="txtName"> </label>
+            <input
+              type="text"
+              name=""
+              id="txtName"
+              class="fields name"
+              placeholder="Your Name"
+              required
+            />
+            <i class="far fa-user"></i>
+          </div>
+
+          <div class="lastname">
+            <label for="txtLastName"> </label>
+            <input
+              type="text"
+              name=""
+              id="txtLastName"
+              class="fields lastname"
+              placeholder="Your Last Name"
+              required
+            />
+          </div>
+
+          <div class="email">
+            <label for="txtEmailRegister"> </label>
+            <input
+              type="text"
+              name=""
+              id="txtEmailRegister"
+              class="fields email"
+              placeholder="mail@example.com"
+              required
+            />
+            <i class="far fa-envelope"></i>
+          </div>
+
+          <div class="password">
+            <label for="pwsPassRegister"> </label>
+            <input
+              type="password"
+              name=""
+              id="pwsPassRegister"
+              class="fields pass"
+              placeholder="Your Password"
+              required
+            />
+            <i class="fas fa-unlock-alt"></i>
+          </div>
+
+          <div class="confirm-password">
+            <label for="pwsConfirmPassRegister"> </label>
+            <input
+              type="password"
+              name=""
+              id="pwsConfirmPassRegister"
+              class="fields con-pass"
+              placeholder="Confirm Your Password"
+              required
+            />
+            <i class="fas fa-unlock-alt"></i>
+          </div>
+
+          <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="others">
+          <a href="#" class="linkLogin">
+            <span>Already register?</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/app-functions.js"></script>
+  </body>
 </html>
