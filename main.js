@@ -1,67 +1,78 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const {app, BrowserWindow, ipcMain} = require("electron");
 const path = require("path");
 const ipc = ipcMain;
+const {getConnection} = require('./src/js/db');
+
+const loginUser = async (login) => {
+    const conn = await getConnection();
+    const result = await conn.query(`SELECT email, password FROM users WHERE email = ${login.email} AND password = ${login.passw}`);
+    console.log(result);
+}
 
 function createWindow() {
-  const win = new BrowserWindow({
-    width: 1280,
-    height: 720,
-    minHeight: 700,
-    minWidth: 500,
-    frame: false,
-    transparent: true,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-      devTools: true,
-      preload: path.join(__dirname, "preload.js"),
-    },
-  });
+    const win = new BrowserWindow({
+        width: 1280,
+        height: 720,
+        minHeight: 700,
+        minWidth: 500,
+        frame: false,
+        transparent: true,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            devTools: true,
+            preload: path.join(__dirname, "preload.js"),
+        },
+    });
 
-  win.loadFile("src/index.html");
-  win.setBackgroundColor("#343B48");
+    win.loadFile("src/index.html");
+    win.setBackgroundColor("#343B48");
 
-  ipc.on("minimizeApp", () => {
-    win.minimize();
-  });
+    ipc.on("minimizeApp", () => {
+        win.minimize();
+    });
 
-  ipc.on("maximizeRestoreApp", () => {
-    if (win.isMaximized()) {
-      win.restore();
-      console.log("Funcion restore de app");
-    } else {
-      win.maximize();
-      console.log("Funcion maximize de app");
-    }
-  });
+    ipc.on("maximizeRestoreApp", () => {
+        if (win.isMaximized()) {
+            win.restore();
+            console.log("Funcion restore de app");
+        } else {
+            win.maximize();
+            console.log("Funcion maximize de app");
+        }
+    });
 
-  win.on("maximize", () => {
-    win.webContents.send("isMaximized");
-    console.log("Maximize win");
-  });
+    win.on("maximize", () => {
+        win.webContents.send("isMaximized");
+        console.log("Maximize win");
+    });
 
-  win.on("unmaximize", () => {
-    win.webContents.send("isRestored");
-    console.log("unmaximize win");
-  });
+    win.on("unmaximize", () => {
+        win.webContents.send("isRestored");
+        console.log("unmaximize win");
+    });
 
-  ipc.on("closeApp", () => {
-    win.close();
-  });
+    ipc.on("closeApp", () => {
+        win.close();
+    });
 }
 
 app.whenReady().then(() => {
-  createWindow();
+    createWindow();
 
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
-  });
+    app.on("activate", () => {
+        if (BrowserWindow.getAllWindows().length === 0) {
+            createWindow();
+        }
+    });
 });
 
 app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
+    if (process.platform !== "darwin") {
+        app.quit();
+    }
 });
+
+module.exports = {
+    loginUser
+};
